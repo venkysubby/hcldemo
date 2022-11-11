@@ -1,6 +1,6 @@
 resource "azurerm_resource_group" "rg" {
   name     = "imagerg2345"
-  location = "East us2"
+  location = "West us2"
 }
 
 resource "azurerm_container_registry" "acr" {
