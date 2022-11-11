@@ -1,20 +1,20 @@
 resource "azurerm_resource_group" "rg" {
-  name     = "imagerg23"
+  name     = "imagerg234"
   location = "East us"
 }
 
 resource "azurerm_container_registry" "acr" {
-  name                = "acrproject32676"
+  name                = "acrproject32676e"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
   sku                 = "Standard"
 }
 
 resource "azurerm_kubernetes_cluster" "aks" {
-  name                = "aksproject2326"
+  name                = "aksproject23263e"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
-  dns_prefix          = "aksaks1"
+  dns_prefix          = "aksaks3e1"
 
   default_node_pool {
     name       = "system"
@@ -29,4 +29,10 @@ resource "azurerm_kubernetes_cluster" "aks" {
   tags = {
     Environment = "Production"
   }
+}
+resource "azurerm_role_assignment" "acrpull" {
+  principal_id                     = azurerm_kubernetes_cluster.aks.kubelet_identity[0].object_id
+  role_definition_name             = "AcrPull"
+  scope                            = azurerm_container_registry.acr.id
+  skip_service_principal_aad_check = true
 }
