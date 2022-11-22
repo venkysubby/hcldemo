@@ -7,10 +7,10 @@ provider "azurerm" {
 
 terraform {
   backend "azurerm" {
-    storage_account_name = "nokiatram2stroge"
+    storage_account_name = "aksstoragelak1"
     container_name       = "newcontainer"
     key                  = "prod.terraform.tfstate"
-    access_key = "bbGnjoQjm6A7W2VdKDapuR336Ry9Sw6qqGfdAfU8f9g8Wv95TPCp7G6hQLW0+RhsSm3dDT8dox/v+AStKcUfVg=="
+    access_key = "4k4YASLQLFSdHzlTxsqsLrfBx7DmEK4BOXt7Q0bYsH8vm+H7kxvCg6MGkXg6N9b8e6kIl/E9KfZI+AStd7XoWA=="
   }
 }
            
